@@ -6,7 +6,7 @@ _____  _____  ____   _____    __ _____ _____  ___  __ __ _____ _____    101
 ||_// ((   )) ||=)  ((   ))  ((  ||_// ||==  ||=|| ||<<  ||==  ||_//       
 || \\\  \\\_//  ||_))  \\\_//  \_)) ||    ||___ || || || \\\ ||___ || \\\            
   \033[1;31m\n\t\t\tDeveloped by Faded\033[0m
-\033[1;35m\n\t\t✨ https://github.com/anonfaded/robospeaker101 ✨\033[0m
+\033[1;35m\n\t✨ https://github.com/anonfaded/robospeaker101 ✨\033[0m
                                                              \033[0m"""
     print(logo)
     while True:

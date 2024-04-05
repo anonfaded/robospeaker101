@@ -17,11 +17,11 @@ def robospeaker():
     ||_// ((   )) ||=)  ((   ))  ((  ||_// ||==  ||=|| ||<<  ||==  ||_//       
     || \\\  \\\_//  ||_))  \\\_//  \_)) ||    ||___ || || || \\\ ||___ || \\\            
     \033[1;31m\n\t\t\tDeveloped by Faded\033[0m
-    \033[1;35m\n\t\t✨ https://github.com/anonfaded/robospeaker101 ✨\033[0m
+    \033[1;35m\n\t✨ https://github.com/anonfaded/robospeaker101 ✨\033[0m
                                                                  \033[0m"""
     print(logo)
     while True:
-        user_input = input(f"{Fore.GREEN}\nEnter What you want me to speak: {Fore.BLUE}(or type q to exit){Fore.MAGENTA}\n>>> {Style.RESET_ALL}")
+        user_input = input(f"{Fore.GREEN}\nEnter What you want me to speak: {Fore.LIGHTBLACK_EX}(or type q to exit){Fore.MAGENTA}\n>>> {Style.RESET_ALL}")
         if user_input.strip() == "q":
             print(f"{Fore.RED}\n\t<<< Bye >>>{Style.RESET_ALL}\n")
             speaker('See you soon')
