@@ -20,39 +20,3 @@ _____  _____  ____   _____    __ _____ _____  ___  __ __ _____ _____    101
 
 if __name__ == '__main__':
     robospeaker()
-
-
-
-
-
-
-# import os
-
-# if __name__ == '__main__':
-#     print("Welcome to RoboSpeaker 1.1 Created by Faded")
-#     while True:
-#         x = input("Enter What you want me to speak: \n")
-#         if x == "q":
-#             print("bye")
-#             os.system("espeak 'See you soon'")
-#             break
-#         command = f"espeak {x}"
-#         os.system(command)
-
-
-
-
-
-
-
-
-# This below code is only for macOS 
-#         if __name__ == '__main__':
-#     print("Welcome to RoboSpeaker 1.1 Created by Faded")
-#     while True:
-#         x = input("Enter What you want me to speak: ")
-#         if x == "q":
-#             os.system("say 'Bye bye friend'")
-#             break
-#         command = f"say {x}"
-#         os.system(command)
