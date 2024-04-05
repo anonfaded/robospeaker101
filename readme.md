@@ -1,3 +1,9 @@
+# prerequisets
+- pip install colorama
+- 
+
+
+
 To achieve text-to-speech functionality in Python across multiple operating systems, you can use different libraries or system commands. Let's start with Linux:
 Linux:
 
