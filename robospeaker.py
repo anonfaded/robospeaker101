@@ -55,6 +55,7 @@ _____  _____  ____   _____    __ _____ _____  ___  __ __ _____ _____    101
             engine.runAndWait()
             break
         else:
+            engine.setProperty('rate', 170)  # Adjust the rate of speech
             engine.say(user_input.strip())
             engine.runAndWait()
 
