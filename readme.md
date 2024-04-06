@@ -1,68 +1,24 @@
-# prerequisets
-- pip install colorama
-- 
+# RoboSpeaker 101
 
+RoboSpeaker 101 is a Python tool for text-to-speech conversion, offering voice selection and audio file saving options.
 
+## Prerequisites
 
-To achieve text-to-speech functionality in Python across multiple operating systems, you can use different libraries or system commands. Let's start with Linux:
-Linux:
+Before running RoboSpeaker 101, ensure you have the following prerequisites installed:
 
-You can use the espeak command-line tool to achieve text-to-speech functionality in Linux. First, ensure that espeak is installed on your Linux system. If not, you can install it using your package manager.
+- [Python](https://www.python.org/downloads/)
+- pip (usually comes installed with Python)
+- [Git](https://git-scm.com/downloads)
 
-Here's how you can use espeak in Python:
+## Installation + How to Use
 
-    Install espeak (if not already installed):
+### Linux, macOS, Windows, Android
 
-bash
+1. Open `Terminal`.
+(For android, install Termux from [F-Droid app store](https://f-droid.org/F-Droid.apk))
+2. Install the required Python packages: `pip install colorama pyttsx3`
+(For andorid, open Termux and use command `pkg install python git colorama pyttsx3`)
+3. Clone the repository: `git clone https://github.com/anonfaded/robospeaker101.git`
+4. Navigate to the project directory: `cd robospeaker101`
 
-        sudo apt-get install espeak
-
-    Use the subprocess module in Python to call the espeak command:
-
-python
-
-import subprocess
-
-def text_to_speech(text):
-    subprocess.call(['espeak', text])
-
-text_to_speech("Hello, this is a test.")
-
-This should speak out the text provided.
-macOS:
-
-On macOS, you can use the built-in say command. Here's how:
-
-python
-
-import subprocess
-
-def text_to_speech(text):
-    subprocess.call(['say', text])
-
-text_to_speech("Hello, this is a test.")
-
-Windows:
-
-For Windows, you can use the pyttsx3 library, which provides a cross-platform interface for text-to-speech conversion.
-
-First, install pyttsx3:
-
-bash
-
-    pip install pyttsx3
-
-Then, you can use it in your Python script:
-
-python
-
-    import pyttsx3
-
-def text_to_speech(text):
-    engine = pyttsx3.init()
-    engine.say(text)
-    engine.runAndWait()
-
-text_to_speech("Hello, this is a test.")
-
-With these steps, you should have text-to-speech functionality working across Linux, macOS, and Windows in your Python program.
+5. Run the script: `python robospeaker.py`
