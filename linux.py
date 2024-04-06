@@ -1,11 +1,21 @@
 from gtts import gTTS
-from playsound import playsound
+from pydub import AudioSegment
+from pydub.playback import play
+import os
 
-def speak(text, speed=1.0, lang='en'):
-    # Adjust the speed of speech using the speed parameter
-    tts = gTTS(text=text, lang=lang, slow=False if speed >= 1.0 else True)
-    tts.save("temp.mp3")  # Save the speech to a temporary file
-    playsound("temp.mp3")  # Play the speech using playsound
+def speak(text):
+    tts = gTTS(text=text, lang='en')
+    tts.save("output.mp3")
 
-# Example usage:
-speak("HThe gTTS library doesn't provide direct control over speech rate or voice gender. However, you can achieve similar effects by adjusting the speed of the generated speech using the speed parameter and selecting different languages to get different voices.", speed=1.0)  # Faster speech
+    # Load the saved audio file
+    audio = AudioSegment.from_mp3("output.mp3")
+
+    # Play the audio
+    play(audio)
+
+    # Remove the temporary audio file
+    os.remove("output.mp3")
+
+if __name__ == "__main__":
+    text = input("Enter the text to speak: ")
+    speak(text)
