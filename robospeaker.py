@@ -48,10 +48,10 @@ _____  _____  ____   _____    __ _____ _____  ___  __ __ _____ _____    101
         engine.setProperty('voice', voices[0].id)  # Use default male voice
 
     while True:
-        user_input = input("\033[1;32m\nEnter What you want me to speak: \033[1;30m(or type q to exit)\033[1;35m\n>>> \033[0m")
+        user_input = input(f"{Fore.GREEN}\nEnter What you want me to speak: {Fore.YELLOW}(or type q to exit){Fore.MAGENTA}\n>>> {Style.RESET_ALL}")
         if user_input.strip() == "q":
-            print("\n\t\033[1;31m<<< \033[1;31mBye >>>\n\033[0m")
-            engine.say("See you soon")
+            print(f"\n\t{Fore.YELLOW}<<< {Fore.MAGENTA}Bye {Fore.YELLOW}>>>\n{Style.RESET_ALL}")
+            engine.say("Goodbye")
             engine.runAndWait()
             break
         else:
