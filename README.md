@@ -23,9 +23,11 @@ Download the linux and macOS scripts from the [releases page](https://github.com
 
 ## Features
 
-- Automated password testing on multiple SSIDs.
-- Simple configuration of target SSIDs and passwords.
-- (Future versions may include password dictionary support.)
+- Text-to-Speech Conversion: Convert typed text into spoken words.
+- Voice Selection: Choose between male and female voices for the speech output.
+- Speech Speed Control: Adjust the speech speed from slow to high according to preference.
+- Easy Navigation: Use intuitive input options like 'q' to exit or '0' to return to the main menu for enhanced user experience.
+- Save Speech Output: Option to save the generated speech as a file for future reference or sharing.
 
 
 ## Prerequisites
