@@ -34,7 +34,7 @@
 
 ## ⬇️ Download
 
-Download the linux and macOS scripts from the [releases page](https://github.com/anonfaded/robospeaker101/releases).
+Download the scripts from the [releases page](https://github.com/anonfaded/robospeaker101/releases).
 
 
 ## Features
