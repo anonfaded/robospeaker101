@@ -54,7 +54,7 @@ Download the scripts from the [releases page](https://github.com/anonfaded/robos
 
 - **Engine:** Utilizes Google Text-to-Speech (gTTS).
 - **Voice Selection:** Offers accents for US English and Indian English only.
-- **Limited Voice Options**: Only provides male voices.
+- **Limited Voice Options**: Only provides female voices.
 - **Speech Speed Control:** Not available.
 - **Multi-Platform Compatibility:** Can be run on Android, Linux, macOS, and Windows.
 
