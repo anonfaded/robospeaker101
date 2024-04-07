@@ -19,15 +19,15 @@ def select_voice():
     if choice == '1':
         print(clear_line * 1000)
         header()
-        print("\n"*3) # line breaks for alighnment
+        print("\n"*2) # line breaks for alighnment
     elif choice == '2':
         print(clear_line * 1000)
         header()
-        print("\n"*3)  # line breaks for alighnment
+        print("\n"*2)  # line breaks for alighnment
     elif choice not in ['1', '2']:
         print(clear_line * 1000)
         header()
-        print(f"{Fore.YELLOW}\n\nWell, well, well... Are you trying to hack into my system, huh? 🤔 Using the default voice instead.\n{Style.RESET_ALL}")
+        print(f"{Fore.YELLOW}\n\n\tWell, well, well... Are you trying to hack into my system, huh? 🤔\n\tUsing the default voice instead.\n{Style.RESET_ALL}")
         return '1'  # Use default male voice if invalid choice is entered
     return choice
 
@@ -40,19 +40,22 @@ def select_speed():
     if speed_choice == "1":
         print(clear_line * 1000) #terminal clear
         header()
+        print("\n"*2) # line breaks for alignment
         return 130  # Slow
     elif speed_choice == "2":
         print(clear_line * 1000) #terminal clear
         header()
+        print("\n"*2) # line breaks for alignment
         return 170 # Medium
     elif speed_choice == "3":
         print(clear_line * 1000) #terminal clear
         header()
+        print("\n"*2) # line breaks for alignment
         return 207  # Fast
     else:
         print(clear_line * 1000) #terminal clear
         header()
-        print(f"{Fore.YELLOW}\n\nUh-oh! Default speed (Medium) will be selected.{Style.RESET_ALL}")
+        print(f"{Fore.YELLOW}\n\n\tUh-oh! Default speed (Medium) will be selected.{Style.RESET_ALL}")
         return 170  # Medium (Default)
 
 def save_audio(output_file, text, voice):
@@ -65,7 +68,7 @@ def header():
     # Print the logo
     logo = r"""
 _____  _____  ____   _____    __ _____ _____  ___  __ __ _____ _____    101
-||_// ((   )) ||=)  ((   ))  ((  ||_// ||==  ||=|| ||<<  ||==  ||_//       
+||_// ((   )) ||=)  ((   ))  ((  ||_// ||==  ||=|| ||<<  ||==  ||_//    windows 2.0   
 || \\  \\_//  ||_))  \\_//  \_)) ||    ||___ || || || \\ ||___ || \\            
   """
     print(f"{Fore.MAGENTA}{logo}{Style.RESET_ALL}")
@@ -103,6 +106,11 @@ def robospeaker():
             elif user_input.strip() == "0":
                 print(clear_line * 1000)
                 break # Restat the tool
+            elif not user_input.strip():  # Check if user input is empty
+                print(clear_line * 1000)
+                header()
+                print(f"{Fore.RED}\n\n\t\tPlease enter something to speak.{Style.RESET_ALL}")
+                continue
             else:
                 engine.setProperty('rate', speed)  # Adjust the rate of speech
                 engine.say(user_input.strip())
@@ -119,10 +127,11 @@ def robospeaker():
                     save_audio(output_file, user_input.strip(), choice)  
                     print(clear_line * 1000)
                     header()
-                    print(f"{Fore.YELLOW}\n\n\t<<< {Fore.GREEN}Speech saved as {Fore.MAGENTA}{output_file} 🎉 {Fore.YELLOW}>>> {Style.RESET_ALL}")
-                elif save_choice != "y" or save_choice == "n":
+                    print(f"{Fore.YELLOW}\n\n\t\t<<< {Fore.GREEN}Speech saved as {Fore.MAGENTA}{output_file} 🎉 {Fore.YELLOW}>>> {Style.RESET_ALL}")
+                elif save_choice.lower() != "y":
                     print(clear_line * 1000)
-                    header()    
+                    header()
+                    print("\n"*2)   
 
 
 if __name__ == '__main__':

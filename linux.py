@@ -1,6 +1,7 @@
 from gtts import gTTS
 from colorama import Fore, Style, init, Back
-import os
+import subprocess
+
 
 # Initialize colorama
 init()
@@ -9,58 +10,40 @@ clear_line = "\033[F\033[K"  # Escape codes for clearing one line
 
 def select_voice():
     print(f"\n{Fore.GREEN}\n\n\nSelect a voice:")
-    print(f"{Fore.MAGENTA}[1]{Style.RESET_ALL} - Male")
-    print(f"{Fore.MAGENTA}[2]{Style.RESET_ALL} - Female")
+    print(f"{Fore.MAGENTA}[1]{Style.RESET_ALL} - English (US accent)")
+    print(f"{Fore.MAGENTA}[2]{Style.RESET_ALL} - English (Indian accent)")
+
     choice = input(f"{Fore.GREEN}\nEnter your choice (1 or 2):{Style.RESET_ALL} ")
+
     if choice == '1':
-        print(clear_line * 1000)
+        print(clear_line * 1000) #terminal clear
         header()
-        print("\n"*3) # line breaks for alignment
-        return 'en'  # Male voice
+        print("\n"*2) # line breaks for alignment
+        return 'en', 'us'  # US accent
     elif choice == '2':
-        print(clear_line * 1000)
+        print(clear_line * 1000) #terminal clear
         header()
-        print("\n"*3)  # line breaks for alignment
-        return 'ar'  # Female voice
-    else:
-        print(clear_line * 1000)
-        header()
-        print(f"{Fore.YELLOW}\n\nInvalid choice. Using the default male voice.\n{Style.RESET_ALL}")
-        return 'en'  # Default to male voice
+        print("\n"*2)  # line breaks for alignment
+        return 'en', 'co.in'  # Indian voice
+    
 
-def select_speed():
-    print(f"{Fore.GREEN}Select speech speed:")
-    print(f"{Fore.MAGENTA}[1]{Style.RESET_ALL} - Slow")
-    print(f"{Fore.MAGENTA}[2]{Style.RESET_ALL} - Medium (Default)")
-    print(f"{Fore.MAGENTA}[3]{Style.RESET_ALL} - Fast")
-    speed_choice = input(f"{Fore.GREEN}\nEnter your choice (1, 2, or 3):{Style.RESET_ALL} ")
-    if speed_choice == "1":
-        print(clear_line * 1000) #terminal clear
-        header()
-        return 0.5  # Slow
-    elif speed_choice == "2":
-        print(clear_line * 1000) #terminal clear
-        header()
-        return 1.0 # Medium
-    elif speed_choice == "3":
-        print(clear_line * 1000) #terminal clear
-        header()
-        return 1.5  # Fast
     else:
         print(clear_line * 1000) #terminal clear
         header()
-        print(f"{Fore.YELLOW}\n\nInvalid choice. Default speed (Medium) will be selected.{Style.RESET_ALL}")
-        return 1.0  # Medium (Default)
+        print(f"{Fore.YELLOW}\n\n\tInvalid choice. Using the default US voice.{Style.RESET_ALL}")
+        return 'en', 'us'  # Default to US voice
+    
 
-def save_audio(output_file, text):
-    tts = gTTS(text=text, lang='en')
+
+def save_audio(output_file, text, lang, tld):
+    tts = gTTS(text=text, lang=lang, tld=tld)
     tts.save(output_file)
 
 def header():
     # Print the logo
     logo = r"""
 _____  _____  ____   _____    __ _____ _____  ___  __ __ _____ _____    101
-||_// ((   )) ||=)  ((   ))  ((  ||_// ||==  ||=|| ||<<  ||==  ||_//       
+||_// ((   )) ||=)  ((   ))  ((  ||_// ||==  ||=|| ||<<  ||==  ||_//    linux 2.0  
 || \\  \\_//  ||_))  \\_//  \_)) ||    ||___ || || || \\ ||___ || \\            
   """
     print(f"{Fore.MAGENTA}{logo}{Style.RESET_ALL}")
@@ -70,9 +53,9 @@ _____  _____  ____   _____    __ _____ _____  ___  __ __ _____ _____    101
 
 def robospeaker():
     while True:
-        speed = select_speed() # Select the speech speed
+        # speed = select_speed() # Select the speech speed
         header() # Printing header part
-        lang = select_voice() # Select the language based on voice choice
+        lang, tld = select_voice()  # Get selected language and top-level domain 
 
         while True:
             user_input = input(f"{Fore.GREEN}\nEnter What you want me to speak: {Fore.LIGHTBLACK_EX}(Enter q to quit or 0 for the main menu.){Fore.MAGENTA}\n>>> {Style.RESET_ALL}")
@@ -82,11 +65,23 @@ def robospeaker():
             elif user_input.strip() == "0":
                 print(clear_line * 1000)
                 break # Restart the tool
+            elif not user_input.strip():  # Check if user input is empty
+                print(clear_line * 1000)
+                header()
+                print(f"{Fore.RED}\n\n\tPlease enter something to speak.{Style.RESET_ALL}")
+                continue
             else:
-                tts = gTTS(text=user_input.strip(), lang=lang, slow=False) # Use slow=False to handle speed
-                tts.speed = speed # Apply selected speed
-                tts.save("temp_audio.mp3")
-                os.system("mpv temp_audio.mp3")
+                tts = gTTS(text=user_input.strip(), tld=tld, lang=lang, slow=False) # Use slow=False to handle speed
+                # Pipe the audio data directly to mpv
+                mpv_process = subprocess.Popen(['mpv', '--no-terminal', '-'], stdin=subprocess.PIPE)
+                tts.write_to_fp(mpv_process.stdin)
+                mpv_process.stdin.close()
+
+                # Wait for mpv to finish playing
+                mpv_process.wait()
+                # Add a delay to allow mpv to consume the data before closing the pipe                # tts.speed = speed # Apply selected speed
+                # tts.save("temp_audio.mp3")
+                # os.system("mpv temp_audio.mp3")
 
                 # Prompt user to save the speech
                 save_choice = input(f"{Fore.CYAN}\nDo you want to save this speech? {Fore.YELLOW}(y/n){Style.RESET_ALL}: ")
@@ -94,13 +89,15 @@ def robospeaker():
                     print(clear_line * 1000)
                     header()
                     output_file = input(f"{Fore.CYAN}\n\n\n\nEnter the name of the output file {Fore.YELLOW}(e.g., speech.mp3){Style.RESET_ALL}: ")
-                    save_audio(output_file, user_input.strip())  
+                    save_audio(output_file, user_input.strip(), lang, tld)  
                     print(clear_line * 1000)
                     header()
-                    print(f"{Fore.YELLOW}\n\n\t<<< {Fore.GREEN}Speech saved as {Fore.MAGENTA}{output_file} 🎉 {Fore.YELLOW}>>> {Style.RESET_ALL}")
-                elif save_choice.lower() != "n":
+                    print(f"{Fore.YELLOW}\n\n\t\t<<< {Fore.GREEN}Speech saved as {Fore.MAGENTA}{output_file} 🎉 {Fore.YELLOW}>>> {Style.RESET_ALL}")
+                elif save_choice.lower() != "y":
                     print(clear_line * 1000)
                     header()
+                    print("\n"*2)
+
 
 if __name__ == '__main__':
     robospeaker()
