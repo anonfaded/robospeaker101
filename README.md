@@ -134,9 +134,9 @@ If you're using Termux on Android and want to move your RoboSpeaker101 generated
 (First go to phone `settings` and give `storage permission to Termux` app)
 
 ```bash
-mv /data/data/com.termux/files/home/robospeaker101 /storage/emulated/0/Download
+mv /data/data/com.termux/files/home/robospeaker101/Audios /storage/emulated/0/Download
 ```
-This command will move the entire `robospeaker101` directory to the `Download` folder in your device's internal storage, making it easier to access and manage your audio files.
+This command will move the entire `Audios` directory to the `Download` folder in your device's internal storage, making it easier to access and manage your audio files.
 
 
 
