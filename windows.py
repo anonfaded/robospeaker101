@@ -1,5 +1,6 @@
 import pyttsx3
 from colorama import Fore, Style, init, Back
+import os
 
 # Initialize colorama
 init()
@@ -59,9 +60,24 @@ def select_speed():
         return 170  # Medium (Default)
 
 def save_audio(output_file, text, voice):
+    # Create the output folder if it doesn't exist
+    audio_folder = "Audios"
+    if not os.path.exists(audio_folder):
+        os.makedirs(audio_folder)
+    
+    # Initialize pyttsx3 engine
     engine = pyttsx3.init()
+    
+    # Set the voice for the engine
     engine.setProperty('voice', voice)
-    engine.save_to_file(text, output_file)
+    
+    # Define the full path to the output file within the audio folder
+    full_output_path = os.path.join(audio_folder, output_file)
+    
+    # Save the speech as an audio file
+    engine.save_to_file(text, full_output_path)
+    
+    # Wait for the speech to be saved
     engine.runAndWait()
 
 def header():
@@ -135,7 +151,7 @@ def robospeaker():
                     save_audio(output_file, user_input.strip(), choice)  
                     print(clear_line * 1000)
                     header()
-                    print(f"{Fore.YELLOW}\n\n\t\t<<< {Fore.GREEN}Speech saved as {Fore.MAGENTA}{output_file} 🎉 {Fore.YELLOW}>>> {Style.RESET_ALL}")
+                    print(f"{Fore.MAGENTA}\n\n\t\t<<< {Fore.GREEN}Speech saved in folder: {Fore.YELLOW}Audios{Fore.MAGENTA}{Fore.GREEN}, as {Fore.YELLOW}{output_file} 🎉 {Fore.MAGENTA}>>> {Style.RESET_ALL}")
                 elif save_choice.lower() != "y":
                     print(clear_line * 1000)
                     header()

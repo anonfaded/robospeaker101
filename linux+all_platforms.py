@@ -1,6 +1,7 @@
 from gtts import gTTS
 from colorama import Fore, Style, init, Back
 import subprocess
+import os
 
 
 # Initialize colorama
@@ -34,10 +35,22 @@ def select_voice():
         return 'en', 'us'  # Default to US voice
     
 
-
 def save_audio(output_file, text, lang, tld):
+    # Define the folder where audio files will be saved
+    audio_folder = "Audios"
+    
+    # Check if the audio folder exists, if not, create it
+    if not os.path.exists(audio_folder):
+        os.makedirs(audio_folder)
+
+    # Create the full path to the output file within the audio folder
+    full_output_path = os.path.join(audio_folder, output_file)
+    
+    # Create a gTTS object with the specified text, language, and TLD
     tts = gTTS(text=text, lang=lang, tld=tld)
-    tts.save(output_file)
+    
+    # Save the audio file to the specified output path
+    tts.save(full_output_path)
 
 def header():
     # Print the logo
@@ -96,11 +109,11 @@ def robospeaker():
                 if save_choice.lower() == "y":
                     print(clear_line * 1000)
                     header()
-                    output_file = input(f"{Fore.CYAN}\n\n\n\nEnter the name of the output file {Fore.YELLOW}(e.g., speech.mp3){Style.RESET_ALL}: ")
+                    output_file = input(f"{Fore.CYAN}\n\n\n\nEnter the name of the output file {Fore.YELLOW}(e.g., speech.wav){Style.RESET_ALL}: ")
                     save_audio(output_file, user_input.strip(), lang, tld)  
                     print(clear_line * 1000)
                     header()
-                    print(f"{Fore.YELLOW}\n\n\t\t<<< {Fore.GREEN}Speech saved as {Fore.MAGENTA}{output_file} 🎉 {Fore.YELLOW}>>> {Style.RESET_ALL}")
+                    print(f"{Fore.MAGENTA}\n\n\t\t<<< {Fore.GREEN}Speech saved in folder: {Fore.YELLOW}Audios{Fore.MAGENTA}{Fore.GREEN}, as {Fore.YELLOW}{output_file} 🎉 {Fore.MAGENTA}>>> {Style.RESET_ALL}")
                 elif save_choice.lower() != "y":
                     print(clear_line * 1000)
                     header()
