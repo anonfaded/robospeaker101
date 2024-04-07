@@ -13,10 +13,13 @@
 ## 📱 Screenshots
 
 <div align="center">
-<img src="/img/1.jpg" style="width: 700px; height: auto;" >
-_windows verison_
-<img src="/img/2.jpg" style="width: 700px; height: auto;" >
-_linux verison_
+<img src="/img/1.png" style="width: 700px; height: auto;" >
+
+__windows verison__
+
+<img src="/img/2.png" style="width: 700px; height: auto;" >
+
+__linux verison__
 
 </div>
 
