@@ -50,15 +50,6 @@ Download the linux and macOS scripts from the [releases page](https://github.com
 - **Multi-Platform Compatibility:** Can be run on Android, Linux, macOS, and Windows.
 
 
-
-## Prerequisites
-
-Before running RoboSpeaker 101, ensure you have the following prerequisites installed:
-
-- [Python](https://www.python.org/downloads/)
-- pip (usually comes installed with Python)
-- [Git](https://git-scm.com/downloads)
-
 ## Prerequisites & Installation Guide
 
 ### Linux, macOS, Android, (Windows optional)
