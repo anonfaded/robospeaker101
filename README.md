@@ -88,18 +88,17 @@ You can download Python from [python.org](https://www.python.org/downloads/), Gi
 ### Linux, macOS, Android, [Windows optional] _(linux+all_platforms.py script)_
 1. Open `Terminal`.
     (For android, install Termux from [F-Droid app store](https://f-droid.org/F-Droid.apk))
-2. For Debian/Ubuntu-based distributions run command (using apt):
+2. For Debian/Ubuntu-based distributions(using apt), run:
 
    ```bash
    sudo apt-get install python3 git mpv
    ```
-   (For windows, use `winget install Python Git mpv`)
+   (For windows, use `winget install Python Git mpv` and for android run `pkg install python git mpv`)
 
 3. Install the required Python packages: 
    ```bash
    pip install colorama gTTS
    ```
-   (For android, first install python and git by `pkg install python git` then use the pip command)
 
 4. Navigate to your desktop and clone the repository:
 
