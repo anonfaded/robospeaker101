@@ -94,7 +94,7 @@ def robospeaker():
             else:
                 tts = gTTS(text=user_input.strip(), tld=tld, lang=lang, slow=False) # Use slow=False to handle speed
                 # Pipe the audio data directly to mpv
-                mpv_process = subprocess.Popen(['mpv', '--no-terminal', '-'], stdin=subprocess.PIPE)
+                mpv_process = subprocess.Popen(['/usr/bin/mpv', '--no-terminal', '-'], stdin=subprocess.PIPE)
                 tts.write_to_fp(mpv_process.stdin)
                 mpv_process.stdin.close()
 
