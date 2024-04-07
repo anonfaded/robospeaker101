@@ -2,7 +2,7 @@
 
 # RoboSpeaker 101
 
-**RoboSpeaker 101 is a Python tool for text-to-speech conversion, offering voice selection and audio file saving options.🔥**
+**RoboSpeaker 101 is a multi-platform Python tool for text-to-speech conversion with voice selection and audio file saving options. Available for Linux, macOS, Windows, and Android.**
 
 [![GitHub all releases](https://img.shields.io/github/downloads/anonfaded/robospeaker101/total?label=Downloads&logo=github)](https://github.com/anonfaded/robospeaker101/releases/)
 
@@ -14,11 +14,15 @@
 
 <div align="center">
 <img src="/img/1.jpg" style="width: 700px; height: auto;" >
+_windows verison_
+<img src="/img/2.jpg" style="width: 700px; height: auto;" >
+_linux verison_
+
 </div>
 
 ## ⬇️ Download
 
-Download the linux and macOS scripts from the [releases page](https://github.com/anonfaded/robospeaker101/releases/tag/v1.0).
+Download the linux and macOS scripts from the [releases page](https://github.com/anonfaded/robospeaker101/releases/tag/v2.0).
 
 
 ## Features
