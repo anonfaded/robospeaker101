@@ -105,6 +105,18 @@ Download the linux and macOS scripts from the [releases page](https://github.com
     python windows.py
     ```
 
+## Moving Audio Files on Android
+
+If you're using Termux on Android and want to move your RoboSpeaker101 generated audio files, you can use the following command:
+(First go to phone `settings` and give `storage permission to Termux` app)
+
+```bash
+mv /data/data/com.termux/files/home/robospeaker101 /storage/emulated/0/Download
+```
+This command will move the entire `robospeaker101` directory to the `Download` folder in your device's internal storage, making it easier to access and manage your audio files.
+
+
+
 ## Contributions
 
 Contributions to RoboSpeaker 101 are welcomed! Feel free to submit pull requests or open issues to contribute to the project.
