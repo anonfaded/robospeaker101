@@ -123,7 +123,7 @@ def robospeaker():
         while True:
             user_input = input(f"{Fore.GREEN}\nEnter What you want me to speak: {Fore.LIGHTBLACK_EX}(Enter q to quit or 0 for the main menu.){Fore.MAGENTA}\n>>> {Style.RESET_ALL}")
             if user_input.strip() == "q":
-                print(f"\n\t{Fore.YELLOW}<<< {Fore.MAGENTA}Bye {Fore.YELLOW}>>>\n{Style.RESET_ALL}")
+                print(f"\n\t{Fore.MAGENTA}<<< {Fore.YELLOW}Bye {Fore.MAGENTA}>>>\n{Style.RESET_ALL}")
                 engine.say("Goodbye")
                 engine.runAndWait()
                 return
