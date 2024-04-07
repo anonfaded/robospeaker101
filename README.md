@@ -13,15 +13,24 @@
 ## 📱 Screenshots
 
 <div align="center">
-<img src="/img/1.png" style="width: 700px; height: auto;" >
+    <img src="/img/1.png" style="width: 700px; height: auto;" >
+    <br>
+    <em>Windows version</em>
+    <br><br>
+    <img src="/img/2.png" style="width: 700px; height: auto;" >
+    <br>
+    <em>Linux version</em>
+    <br><br>
+    </div>
+    <details>
+        <summary><strong>More Screenshots</strong></summary>
+        <img src="/img/3.png" style="width: 700px; height: auto;" >
+        <br>
+        <img src="/img/4.png" style="width: 700px; height: auto;" >
+        <br>
+        <img src="/img/5.png" style="width: 700px; height: auto;" >
+    </details>
 
-__windows verison__
-
-<img src="/img/2.png" style="width: 700px; height: auto;" >
-
-__linux verison__
-
-</div>
 
 ## ⬇️ Download
 
