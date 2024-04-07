@@ -53,7 +53,7 @@ def header():
             /  ___/\____ \_/ __ \\__  \ |  |/ // __ \_  __ \
             \___ \ |  |_> >  ___/ / __ \|    <\  ___/|  | \/
             /____  >|   __/ \___  >____  /__|_ \\___  >__|   101
-                \/ |__|        \/     \/     \/    \/        linux v2.0         
+                 \/ |__|        \/     \/     \/    \/        linux v2.0         
   """
     print(f"{Fore.MAGENTA}{logo}{Style.RESET_ALL}")
     print(f"{Fore.RED}\n\t\t█▒▓­░⡷⠂ DEVELOPED BY FADED ⠐⢾░▒▓█{Style.RESET_ALL}")
