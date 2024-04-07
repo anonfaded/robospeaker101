@@ -52,58 +52,73 @@ Download the linux and macOS scripts from the [releases page](https://github.com
 
 ## Prerequisites & Installation Guide
 
-### Linux, macOS, Android, (Windows optional)
+
+### Windows _(windows.py script)_
+
+You can download Python from [python.org](https://www.python.org/downloads/), Git from [git-scm.com](https://git-scm.com/downloads), and MPV from [mpv.io](https://mpv.io/installation/), or just do it directly form the terminal, see next steps:
+1. Open Terminal/PowerShell.
+2. Install Python, Git, and MPV using the following command:
+   ```bash
+   winget install Python Git mpv
+   ```
+3. Agree to the terms of service by typing 'Y' and then pressing Enter.
+4. Once the installations are complete, close and reopen Terminal/PowerShell to continue with the next steps, such as cloning the repository.
+5. Install the required Python packages:
+   ```bash
+   pip install colorama pyttsx3
+   ```
+
+6. Clone the repository:
+    ```bash
+    git clone https://github.com/anonfaded/robospeaker101.git
+    ```
+
+7. Navigate to the project directory:
+    ```bash
+    cd robospeaker101
+    ```
+    **(Tip: In Powershell when you type `cd r`, press the `TAB` button to autocomplete the command)**
+
+8. Run the script:
+    ```bash
+    python windows.py
+    ```
+
+
+### Linux, macOS, Android, [Windows optional] _(linux+all_platforms.py script)_
 1. Open `Terminal`.
-
     (For android, install Termux from [F-Droid app store](https://f-droid.org/F-Droid.apk))
+2. For Debian/Ubuntu-based distributions run command (using apt):
 
-2. Install the required Python packages: 
+   ```bash
+   sudo apt-get install python3 git mpv
+   ```
+   (For windows, use `winget install Python Git mpv`)
+
+3. Install the required Python packages: 
    ```bash
    pip install colorama gTTS
    ```
    (For android, first install python and git by `pkg install python git` then use the pip command)
 
-3. Clone the repository: 
-   ```bash
-   git clone https://github.com/anonfaded/robospeaker101.git
-   ```
+4. Navigate to your desktop and clone the repository:
 
-4. Navigate to the project directory: 
+   ```bash
+   cd ~/Desktop && git clone https://github.com/anonfaded/robospeaker101.git
+   ```
+   (For windows, use this instead ` cd ~/Desktop; git clone https://github.com/anonfaded/robospeaker101.git`)
+
+5. Navigate to the project directory: 
    ```bash
    cd robospeaker101
    ```
 
-5. Run the script:
+6. Run the script:
    ```bash
    python linux+all_platforms.py
    ```
    (For linux, use `python3 linux+all_platforms.py` )
    
-### Windows
-
-1. Install Python from [python.org](https://www.python.org/downloads/).
-
-2. Open Command Prompt or PowerShell.
-
-3. Install the required Python packages:
-   ```bash
-   pip install colorama pyttsx3
-   ```
-
-4. Clone the repository:
-    ```bash
-    git clone https://github.com/anonfaded/robospeaker101.git
-    ```
-
-5. Navigate to the project directory:
-    ```bash
-    cd robospeaker101
-    ```
-
-6. Run the script:
-    ```bash
-    python windows.py
-    ```
 
 ## Moving Audio Files on Android
 
