@@ -24,10 +24,22 @@ Download the linux and macOS scripts from the [releases page](https://github.com
 ## Features
 
 - Text-to-Speech Conversion: Convert typed text into spoken words.
-- Voice Selection: Choose between male and female voices for the speech output.
-- Speech Speed Control: Adjust the speech speed from slow to high according to preference.
-- Easy Navigation: Use intuitive input options like 'q' to exit or '0' to return to the main menu for enhanced user experience.
+- Easy Navigation: Use intuitive input options like 'q' to exit or '0' to return to the main menu.
 - Save Speech Output: Option to save the generated speech as a file for future reference or sharing.
+
+### Windows Script Specific Features
+
+- Engine: Utilizes pyttsx3.
+- Voice Selection: Choose between male and female voices.
+- Speech Speed Control: Adjust the speech speed from slow to high.
+
+### Linux Script Specific Features
+
+- Engine: Utilizes Google Text-to-Speech (gTTS).
+- Voice Selection: Offers accents for US English and Indian English only.
+- Limited Voice Options: Only provides male voices.
+- Speech Speed Control: Not available.
+
 
 
 ## Prerequisites
