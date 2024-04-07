@@ -10,7 +10,7 @@
 
 ---
 
-## 📱 Screenshot
+## 📱 Screenshots
 
 <div align="center">
 <img src="/img/1.jpg" style="width: 700px; height: auto;" >
@@ -38,19 +38,57 @@ Before running RoboSpeaker 101, ensure you have the following prerequisites inst
 - pip (usually comes installed with Python)
 - [Git](https://git-scm.com/downloads)
 
-## Installation + How to Use
+## Prerequisites & Installation Guide
 
-### Linux, macOS, Windows, Android
-
+### Linux, macOS, Android, (Windows optional)
 1. Open `Terminal`.
 
     (For android, install Termux from [F-Droid app store](https://f-droid.org/F-Droid.apk))
 
-2. Install the required Python packages: `pip install colorama pyttsx3`
+2. Install the required Python packages: 
+   ```bash
+   pip install colorama gTTS
+   ```
+   (For android, first install python and git by `pkg install python git` then use the pip command)
 
-    (For andorid, open Termux and use command `pkg install python git colorama pyttsx3`)
+3. Clone the repository: 
+   ```bash
+   git clone https://github.com/anonfaded/robospeaker101.git
+   ```
 
-3. Clone the repository: `git clone https://github.com/anonfaded/robospeaker101.git`
-4. Navigate to the project directory: `cd robospeaker101`
+4. Navigate to the project directory: 
+   ```bash
+   cd robospeaker101
+   ```
 
-5. Run the script: `python robospeaker.py`
+5. Run the script:
+   ```bash
+   python linux+all_platforms.py
+   ```
+   (For linux, use `python3 linux+all_platforms.py` )
+   
+### Windows
+
+1. Install Python from [python.org](https://www.python.org/downloads/).
+
+2. Open Command Prompt or PowerShell.
+
+3. Install the required Python packages:
+   ```bash
+   pip install colorama pyttsx3
+   ```
+
+4. Clone the repository:
+    ```bash
+    git clone https://github.com/anonfaded/robospeaker101.git
+    ```
+
+5. Navigate to the project directory:
+    ```bash
+    cd robospeaker101
+    ```
+
+6. Run the script:
+    ```bash
+    python windows.py
+    ```
