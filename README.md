@@ -104,3 +104,8 @@ Download the linux and macOS scripts from the [releases page](https://github.com
     ```bash
     python windows.py
     ```
+
+## Contributions
+
+Contributions to RoboSpeaker 101 are welcomed! Feel free to submit pull requests or open issues to contribute to the project.
+
