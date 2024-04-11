@@ -2,7 +2,7 @@
 
 # RoboSpeaker 101
 
-**RoboSpeaker 101 is a multi-platform Python tool for text-to-speech conversion with voice selection and audio file saving options. Available for Linux, macOS, Windows, and Android.**
+**RoboSpeaker 101 is a multi-platform Python tool for text-to-speech conversion with voice selection, usage history tracking and audio file saving options. Available for Linux, macOS, Windows, and Android.**
 
 [![GitHub all releases](https://img.shields.io/github/downloads/anonfaded/robospeaker101/total?label=Downloads&logo=github)](https://github.com/anonfaded/robospeaker101/releases/)
 
@@ -34,7 +34,7 @@
 
 ## ⬇️ Download
 
-Download the scripts from the [releases page](https://github.com/anonfaded/robospeaker101/releases).
+Download the scripts directly from our [releases page](https://github.com/anonfaded/robospeaker101/releases).
 
 
 ## Features
@@ -42,6 +42,7 @@ Download the scripts from the [releases page](https://github.com/anonfaded/robos
 - **Text-to-Speech Conversion:** Convert typed text into spoken words.
 - **Easy Navigation:** Use intuitive input options like 'q' to exit or '0' to return to the main menu.
 - **Save Speech Output:** Option to save the generated speech as a file for future reference or sharing.
+- **Usage History Tracking:** RoboSpeaker 101 automatically tracks and organizes usage history. The history folder is organized by date, containing inputs for each day saved as .md files. New inputs are added automatically. Users can easily access the history folder to review past inputs.
 
 ### windows.py Script Specific Features
 
@@ -49,6 +50,7 @@ Download the scripts from the [releases page](https://github.com/anonfaded/robos
 - **Voice Selection:** Choose between male and female voices.
 - **Speech Speed Control:** Adjust the speech speed from slow to high.
 - **Platform Compatibility:** Windows only.
+- **Usage History Tracking:** Available for reviewing past inputs and outputs.
 
 ### linux+all_platforms.py Script Specific Features
 
@@ -57,6 +59,7 @@ Download the scripts from the [releases page](https://github.com/anonfaded/robos
 - **Limited Voice Options**: Only provides female voices.
 - **Speech Speed Control:** Not available.
 - **Multi-Platform Compatibility:** Can be run on Android, Linux, macOS, and Windows.
+- **Usage History Tracking:** Available for reviewing past inputs and outputs.
 
 
 ## Prerequisites & Installation Guide
@@ -64,7 +67,7 @@ Download the scripts from the [releases page](https://github.com/anonfaded/robos
 
 ### Windows _(windows.py script)_
 
-You can download Python from [python.org](https://www.python.org/downloads/), Git from [git-scm.com](https://git-scm.com/downloads), and MPV from [mpv.io](https://mpv.io/installation/), or just do it directly form the terminal, see next steps:
+You can download Python from [python.org](https://www.python.org/downloads/), Git from [git-scm.com](https://git-scm.com/downloads), and MPV from [mpv.io](https://mpv.io/installation/), or just do it directly from the terminal, see next steps:
 1. Open Terminal/PowerShell.
 2. Install Python, Git, and MPV using the following command:
    ```bash

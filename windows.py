@@ -1,11 +1,31 @@
 import pyttsx3
 from colorama import Fore, Style, init, Back
 import os
+from datetime import datetime
 
 # Initialize colorama
 init()
 
 clear_line = "\033[F\033[K"  # Escape codes for clearing one line
+
+def save_to_history(text):
+    # Get current date
+    current_date = datetime.now().strftime("%Y-%m-%d")
+    
+    # Create history folder if it doesn't exist
+    history_folder = "history"
+    os.makedirs(history_folder, exist_ok=True)
+    
+    # Create subfolder for current date if it doesn't exist
+    date_folder = os.path.join(history_folder, current_date)
+    os.makedirs(date_folder, exist_ok=True)
+    
+    # Create markdown file for current date if it doesn't exist
+    markdown_file = os.path.join(date_folder, "history.md")
+    
+    # Write text to markdown file with a timestamp
+    with open(markdown_file, "a") as file:
+        file.write(f"\n\n---\n\n{datetime.now().strftime('%H:%M:%S')}\n{text}\n")
 
 # Now, you can use clear_line in a print statement and multiply it as needed
 # print(clear_line * 2)  # This will clear two lines
@@ -93,7 +113,7 @@ def header():
             /  ___/\____ \_/ __ \\__  \ |  |/ // __ \_  __ \
             \___ \ |  |_> >  ___/ / __ \|    <\  ___/|  | \/
             /____  >|   __/ \___  >____  /__|_ \\___  >__|  101
-                 \/ |__|        \/     \/     \/    \/      windows v2.1         
+                 \/ |__|        \/     \/     \/    \/      windows v3.0         
   """
     print(f"{Fore.MAGENTA}{logo}{Style.RESET_ALL}")
     print(f"{Fore.RED}\n\t\t█▒▓­░⡷⠂ DEVELOPED BY FADED ⠐⢾░▒▓█{Style.RESET_ALL}")
@@ -136,6 +156,8 @@ def robospeaker():
                 print(f"{Fore.RED}\n\n\t\tPlease enter something to speak.{Style.RESET_ALL}")
                 continue
             else:
+                # If user input is not empty, save to history and continue loop
+                save_to_history(user_input)
                 engine.setProperty('rate', speed)  # Adjust the rate of speech
                 engine.say(user_input.strip())
                 engine.runAndWait()
