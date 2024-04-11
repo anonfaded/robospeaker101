@@ -97,7 +97,7 @@ def header():
   """
     print(f"{Fore.MAGENTA}{logo}{Style.RESET_ALL}")
     print(f"{Fore.RED}\n\t\t█▒▓­░⡷⠂ DEVELOPED BY FADED ⠐⢾░▒▓█{Style.RESET_ALL}")
-    print(f"{Fore.LIGHTWHITE_EX}\n\t\t🏴 彡 https://t.me/cyberhood/  彡 🏴 {Style.RESET_ALL}")
+    print(f"{Fore.LIGHTWHITE_EX}\n\t\t🏴 彡 https://t.me/cyberhood  彡 🏴 {Style.RESET_ALL}")
     print(f"{Back.RED}\n\t ★ 彡 https://github.com/anonfaded/robospeaker101 彡 ★ {Style.RESET_ALL}") 
 
 
