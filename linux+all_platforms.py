@@ -2,12 +2,36 @@ from gtts import gTTS
 from colorama import Fore, Style, init, Back
 import subprocess
 import os
-
+from datetime import datetime
+import platform
 
 # Initialize colorama
 init()
 
 clear_line = "\033[F\033[K"  # Escape codes for clearing one line
+
+def save_to_history(text):
+    # Get current date
+    current_date = datetime.now().strftime("%Y-%m-%d")
+    
+    # Create history folder if it doesn't exist
+    history_folder = "history"
+    os.makedirs(history_folder, exist_ok=True)
+    
+    # Create subfolder for current date if it doesn't exist
+    date_folder = os.path.join(history_folder, current_date)
+    os.makedirs(date_folder, exist_ok=True)
+    
+    # Create markdown file for current date if it doesn't exist
+    markdown_file = os.path.join(date_folder, "history.md")
+    
+    # Write text to markdown file with a timestamp
+    with open(markdown_file, "a") as file:
+        file.write(f"\n\n---\n\n{datetime.now().strftime('%H:%M:%S')}\n{text}\n")
+
+# # Example usage
+# text = "Example text to be saved in history"
+# save_to_history(text)
 
 def select_voice():
     print(f"\n{Fore.GREEN}\n\n\nSelect a voice:")
@@ -80,21 +104,33 @@ def robospeaker():
 
         while True:
             user_input = input(f"{Fore.GREEN}\nEnter What you want me to speak: {Fore.LIGHTBLACK_EX}(Enter q to quit or 0 for the main menu.){Fore.MAGENTA}\n>>> {Style.RESET_ALL}")
+            
             if user_input.strip() == "q":
                 print(f"\n\t{Fore.MAGENTA}<<< {Fore.YELLOW}Bye {Fore.MAGENTA}>>>\n{Style.RESET_ALL}")
                 return
+            
             elif user_input.strip() == "0":
                 print(clear_line * 1000)
                 break # Restart the tool
             elif not user_input.strip():  # Check if user input is empty
+                
                 print(clear_line * 1000)
                 header()
                 print(f"{Fore.RED}\n\n\tPlease enter something to speak.{Style.RESET_ALL}")
                 continue
             else:
+                # If user input is not empty, save to history and continue loop
+                save_to_history(user_input)
                 tts = gTTS(text=user_input.strip(), tld=tld, lang=lang, slow=False) # Use slow=False to handle speed
+
+                # Determine the path to mpv based on the platform
+                if platform.system() == "Windows":
+                    mpv_path = "mpv"
+                else:  # Linux or other platforms
+                    mpv_path = "/usr/bin/mpv"                
+
                 # Pipe the audio data directly to mpv
-                mpv_process = subprocess.Popen(['/usr/bin/mpv', '--no-terminal', '-'], stdin=subprocess.PIPE)
+                mpv_process = subprocess.Popen([f'{mpv_path}', '--no-terminal', '-'], stdin=subprocess.PIPE)
                 tts.write_to_fp(mpv_process.stdin)
                 mpv_process.stdin.close()
 
@@ -118,7 +154,9 @@ def robospeaker():
                     print(clear_line * 1000)
                     header()
                     print("\n"*2)
+        
 
 
 if __name__ == '__main__':
     robospeaker()
+    
